@@ -1,0 +1,44 @@
+@import "../../Styles/Mixins.scss";
+@import "../../Styles/Variables.scss";
+
+.hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: 80vh;
+  position:relative;
+
+  &__text{
+  max-width:60%;
+  max-height:80vh;
+  margin:auto 20rem auto 15rem;
+
+    &__content{
+      font-size: 2rem;
+      line-height: 1.6;
+      margin-bottom: 4.8rem;
+    }
+  }
+}
+
+.h1{
+  @include heading(5.2rem, 3.2rem, 1.05)
+}
+
+.color {
+  background-color: $primary-color;
+}
+
+.btn {
+  @include btn();
+  padding: 1.8rem 2.4rem;
+}
+
+.img{
+  position:absolute;
+
+  max-height:100%;
+  right:-15%;
+  bottom:2%;
+
+
+}

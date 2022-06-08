@@ -1,0 +1,46 @@
+@import "../../Styles/Variables.scss";
+@import "../../Styles/Mixins.scss";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 9.6rem;
+  padding: 0 6.4rem;
+}
+
+.logo {
+  font-size: 3rem;
+  text-decoration: none;
+}
+
+.mainNavList,
+.mainNavBtn {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mainNavLink:link,
+.mainNavLink:visited {
+  @include btn();
+  background-color:$white;
+  color:$text-color-dark;
+}
+
+.mainNavLink:hover,
+.mainNavLink:active {
+  color: $white;
+}
+
+.mainNavBtn {
+  gap: 3.6rem;
+
+  .navBtnColor {
+    background-color:$darker-color;;
+    color:$white;
+  }
+}
+
+

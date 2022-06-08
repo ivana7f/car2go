@@ -1,0 +1,42 @@
+@import "./Variables.scss";
+
+@mixin container() {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+@mixin btn() {
+  display: inline-block;
+  padding: 1.2rem 2.4rem;
+  font-weight: $medium-font-weight;
+  text-decoration: none;
+  border-radius: $border-radius;
+  font-size: 1.8rem;
+  cursor: pointer;
+  border: none;
+  background-color: $darker-color;
+  color: $white;
+
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: $dark-color;
+  }
+}
+
+@mixin heading($font-size, $mg-bottom, $line-height) {
+  font-weight: $bold-font-weight;
+  color: $text-color-dark;
+  letter-spacing: -0.5px;
+  font-size: $font-size;
+  margin-bottom: $mg-bottom;
+  line-height: $line-height;
+}
+
+@mixin flex-center() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
