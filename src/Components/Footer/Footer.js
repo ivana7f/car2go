@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Footer.module.scss";
-import { IconContext } from "react-icons";
+
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -93,29 +93,17 @@ function Footer() {
             <ul>
               <li>
                 <a href="#">
-                  <FaFacebookF size="2rem" color="" />
+                  <FaFacebookF size="2rem" color="#1f5c90" />
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <IconContext.Provider
-                    value={{ className: `${classes.icon}` }}
-                  >
-                    <div>
-                      <FaTwitter />
-                    </div>
-                  </IconContext.Provider>
+                  <FaTwitter size="2rem" color="#1f5c90" />
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <IconContext.Provider
-                    value={{ className: `${classes.icon}` }}
-                  >
-                    <div>
-                      <FaInstagram />
-                    </div>
-                  </IconContext.Provider>
+                  <FaInstagram size="2rem" color="#1f5c90" />
                 </a>
               </li>
             </ul>
