@@ -93,13 +93,7 @@ function Footer() {
             <ul>
               <li>
                 <a href="#">
-                  <IconContext.Provider
-                    value={{ className: `${classes.icon}` }}
-                  >
-                    <div>
-                      <FaFacebookF />
-                    </div>
-                  </IconContext.Provider>
+                  <FaFacebookF size="2rem" color="" />
                 </a>
               </li>
               <li>
