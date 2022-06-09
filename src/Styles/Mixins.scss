@@ -18,7 +18,7 @@
   background-color: $darker-color;
   color: $white;
 
-  transition: all 0.3s;
+  transition: all 0.3s ease-in;
 
   &:hover {
     background-color: $dark-color;

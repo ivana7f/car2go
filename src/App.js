@@ -1,5 +1,6 @@
 import React from "react";
 import AvailableModels from "./Components/AvailableModels/AvailableModels";
+import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
 import HowItWorks from "./Components/HowItWorks/HowItWorks";
@@ -15,6 +16,7 @@ function App() {
       <AvailableModels />
       <HowItWorks />
       <WhyChoose />
+      <Footer />
     </div>
   );
 }
