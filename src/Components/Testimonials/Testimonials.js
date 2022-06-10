@@ -25,7 +25,7 @@ const DUMMY_DATA = [
   },
   {
     id: 4,
-    rating: 1,
+    rating: 3,
     text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
 ];

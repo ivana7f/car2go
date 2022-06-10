@@ -8,7 +8,7 @@ function AddTestimonial() {
       <StarRating />
       <form>
         <textarea
-          placeholder="Enter your feedback"
+          placeholder="Enter your feedback..."
           rows={10}
           cols={40}
           maxLength={100}

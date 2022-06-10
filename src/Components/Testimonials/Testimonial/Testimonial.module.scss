@@ -1,9 +1,8 @@
 @import "../../../Styles/Mixins.scss";
 @import "../../../Styles/Variables.scss";
 
-.rating {
-  text-align: center;
-  font-size: 2rem;
+.testimonialContainer {
+  @include flex-center();
 }
 
 .text {

@@ -1,11 +1,23 @@
 import React from "react";
+import StarRating from "../AddTestimonial/StarRating/StarRating";
+import { FaStar } from "react-icons/fa";
 
 import classes from "./Testimonial.module.scss";
 
 function Testimonial(props) {
   return (
-    <div>
-      <p className={classes.rating}>{props.rating}</p>
+    <div className={classes.testimonialContainer}>
+      <div>
+        {[...Array(5)].map((star, i) => {
+          const ratingValue = i + 1;
+          return (
+            <FaStar
+              color={ratingValue <= props.rating ? "#ffd43b" : "#ced4da"}
+              size="2rem"
+            />
+          );
+        })}
+      </div>
       <p className={classes.text}>{props.text}</p>
     </div>
   );
