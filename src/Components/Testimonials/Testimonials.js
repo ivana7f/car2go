@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Testimonial from "./Testimonial/Testimonial";
 import classes from "./Testimonials.module.scss";
-import { GrFormPrevious } from "react-icons/gr";
-import { GrFormNext } from "react-icons/gr";
+import { SamplePrevArrow, SampleNextArrow } from "./CustomArrows/CustomArrows";
+import AddTestimonial from "./AddTestimonial/AddTestimonial";
 
 const DUMMY_DATA = [
   {
@@ -40,21 +40,13 @@ const settings = {
   nextArrow: <SampleNextArrow />,
 };
 
-function SamplePrevArrow(props) {
-  let { className, onClick } = props;
-  return <GrFormPrevious className={className} onClick={onClick} />;
-}
-
-function SampleNextArrow(props) {
-  let { className, onClick } = props;
-  return <GrFormNext className={className} onClick={onClick} />;
-}
-
 function Testimonials() {
+  const [openAddTestimonial, setOpenAddTestimonial] = useState(false);
+
   return (
     <section className={classes.testimonials}>
       <div className={classes.container}>
-        <h2>Testimonials</h2>
+        <h2 className={classes.headingTestimonial}>Testimonials</h2>
         <div className={classes.slider}>
           <Slider {...settings}>
             {DUMMY_DATA.map((testimonial) => (
@@ -67,6 +59,15 @@ function Testimonials() {
           </Slider>
         </div>
       </div>
+      {!openAddTestimonial && (
+        <button
+          className={classes.btnAdd}
+          onClick={() => setOpenAddTestimonial(true)}
+        >
+          Add testimonial
+        </button>
+      )}
+      {openAddTestimonial && <AddTestimonial />}
     </section>
   );
 }

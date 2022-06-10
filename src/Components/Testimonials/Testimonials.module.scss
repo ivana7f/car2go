@@ -10,11 +10,17 @@
   @include container();
 }
 
-h2 {
+.headingTestimonial {
   @include heading(4.6rem, 9rem, 1);
   text-align: center;
 }
 
 .slider {
   padding: 1rem;
+}
+
+.btnAdd {
+  @include btn();
+  display: block;
+  margin: 5rem auto 0 auto;
 }
