@@ -29,6 +29,8 @@
 .footerHeading {
   @include heading(2rem, 3rem, 1);
   font-weight: $medium-font-weight;
+  text-align: left;
+  color: $dark-color;
 }
 
 .footerList {
