@@ -8,7 +8,7 @@ function WhyChoose() {
   return (
     <section className={classes.section}>
       <div className={classes.container}>
-        <h2>Why Choose Rental?</h2>
+        <h2>Why Choose car2go?</h2>
         <div className={classes.boxes}>
           <div className={classes.box}>
             <IoLocationOutline size="5.5rem" />
