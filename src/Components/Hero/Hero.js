@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./Hero.module.scss";
-import car from "../../img/car.png"
+import car from "../../img/car.png";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -12,12 +13,12 @@ function Hero() {
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum
           rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.
         </p>
-        <a href="#" className={classes.btn}>
+        <Link to="/cars" className={classes.btn}>
           Rent a Car
-        </a>
+        </Link>
       </div>
       <div className={classes.color}>
-        <img src={car} className={classes.img }/>
+        <img src={car} className={classes.img} />
       </div>
     </section>
   );
