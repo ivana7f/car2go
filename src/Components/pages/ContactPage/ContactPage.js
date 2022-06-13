@@ -104,72 +104,78 @@ function ContactPage() {
   const inputClassesMessage = messageIsInvalid ? "invalidMessage" : "message";
 
   return (
-    <section className={classes.contactPage}>
-      <div className={classes.contactForm}>
-        <h2>Contact Us</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Your Name"
-            className={classes[`${inputClassesName}`]}
-            value={name}
-            onBlur={nameInputBlurHandler}
-            onChange={(event) => setName(event.target.value)}
-          />
-          {nameIsInvalid && (
-            <div className={classes.invalidInputText}>
-              Name must not be empty!
-            </div>
-          )}
-          <input
-            type="email"
-            placeholder="Your Email"
-            className={classes[`${inputClassesEmail}`]}
-            value={email}
-            onBlur={emailInputBlurHandler}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          {emailIsInvalid && (
-            <div className={classes.invalidInputText}>Email is not valid!</div>
-          )}
-          <textarea
-            placeholder="Enter message..."
-            maxLength={600}
-            rows={10}
-            cols={40}
-            className={classes[`${inputClassesMessage}`]}
-            value={message}
-            onBlur={messageBlurHandler}
-            onChange={(event) => setMessage(event.target.value)}
-          ></textarea>
-          {messageIsInvalid && (
-            <div className={classes.invalidInputText}>
-              Message must not be empty!
-            </div>
-          )}
-          <button className={classes.sendBtn}>Send message</button>
-          {isSent && (
-            <p className={classes.success}>
-              Your message has been successfully sent!
-            </p>
-          )}
-        </form>
-      </div>
-      <div className={classes.contactInfo}>
-        <div className={classes.infoBox}>
-          <IoLocationOutline size="5rem" color="#1f5c90" />
-          <p>7760 Glenridge Dr. Oak Lawn, IL 60453</p>
+    <div className={classes.contactPage}>
+      <section>
+        <div className={classes.contactForm}>
+          <h2>Contact Us</h2>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Your Name"
+              className={classes[`${inputClassesName}`]}
+              value={name}
+              onBlur={nameInputBlurHandler}
+              onChange={(event) => setName(event.target.value)}
+            />
+            {nameIsInvalid && (
+              <div className={classes.invalidInputText}>
+                Name must not be empty!
+              </div>
+            )}
+            <input
+              type="email"
+              placeholder="Your Email"
+              className={classes[`${inputClassesEmail}`]}
+              value={email}
+              onBlur={emailInputBlurHandler}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+            {emailIsInvalid && (
+              <div className={classes.invalidInputText}>
+                Email is not valid!
+              </div>
+            )}
+            <textarea
+              placeholder="Enter message..."
+              maxLength={600}
+              rows={9}
+              cols={30}
+              className={classes[`${inputClassesMessage}`]}
+              value={message}
+              onBlur={messageBlurHandler}
+              onChange={(event) => setMessage(event.target.value)}
+            ></textarea>
+            {messageIsInvalid && (
+              <div className={classes.invalidInputText}>
+                Message must not be empty!
+              </div>
+            )}
+            <button className={classes.sendBtn}>Send message</button>
+            {isSent && (
+              <p className={classes.success}>
+                Your message has been successfully sent!
+              </p>
+            )}
+          </form>
         </div>
-        <div className={classes.infoBox}>
-          <BiPhoneCall size="5rem" color="#1f5c90" />
-          <p>972-968-9359</p>
+      </section>
+      <section>
+        <div className={classes.contactInfo}>
+          <div className={classes.infoBox}>
+            <IoLocationOutline size="5rem" color="#1f5c90" />
+            <p>7760 Glenridge Dr. Oak Lawn, IL 60453</p>
+          </div>
+          <div className={classes.infoBox}>
+            <BiPhoneCall size="5rem" color="#1f5c90" />
+            <p>972-968-9359</p>
+          </div>
+          <div className={classes.infoBox}>
+            <GoMail size="5rem" color="#1f5c90" />
+            <p>info@car2go.com</p>
+          </div>
         </div>
-        <div className={classes.infoBox}>
-          <GoMail size="5rem" color="#1f5c90" />
-          <p>info@car2go.com</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 
