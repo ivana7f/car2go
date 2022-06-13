@@ -9,15 +9,15 @@
   width: 50%;
   margin: 3rem auto;
 
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
   h2 {
     @include heading(5rem, 3rem, 1);
     text-align: center;
-  }
-
-  div {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
   }
 }
 
@@ -26,17 +26,13 @@
   padding: 1.6rem 2rem;
   border-radius: 15px;
   font-size: 1.6rem;
-  margin-bottom: 1rem;
   border: none;
   background-color: $light-color;
-
-  &:first-child {
-    margin-right: 1rem;
-  }
 }
 
 .message {
   @include text-area();
+  margin-top: 0;
   padding: 1rem 2rem;
   display: block;
   width: 100%;
@@ -48,7 +44,7 @@
 .sendBtn {
   @include btn();
   display: block;
-  margin: 1rem auto 2rem auto;
+  margin: 0 auto;
 }
 
 .contactInfo {
@@ -56,7 +52,7 @@
   justify-content: center;
   align-items: flex-start;
   gap: 14rem;
-  margin-top: 8rem;
+  margin-top: 6rem;
 
   .infoBox {
     @include flex-center();
@@ -69,4 +65,35 @@
       text-align: center;
     }
   }
+}
+
+.success {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.invalidInput {
+  border: 1px solid #b40e0e;
+  background-color: #fddddd;
+  width: 100%;
+  padding: 1.6rem 2rem;
+  border-radius: 15px;
+  font-size: 1.6rem;
+}
+
+.invalidMessage {
+  @include text-area();
+  border: 1px solid #b40e0e;
+  background-color: #fddddd;
+  margin-top: 0;
+  padding: 1rem 2rem;
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.invalidInputText {
+  margin: 0;
+  color: $error;
+  font-size: 1.6rem;
 }
