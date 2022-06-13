@@ -1,0 +1,72 @@
+@import "../../../Styles/Mixins.scss";
+@import "../../../Styles/Variables.scss";
+
+.contactPage {
+  @include container();
+}
+
+.contactForm {
+  width: 50%;
+  margin: 3rem auto;
+
+  h2 {
+    @include heading(5rem, 3rem, 1);
+    text-align: center;
+  }
+
+  div {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 1.6rem 2rem;
+  border-radius: 15px;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  border: none;
+  background-color: $light-color;
+
+  &:first-child {
+    margin-right: 1rem;
+  }
+}
+
+.message {
+  @include text-area();
+  padding: 1rem 2rem;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+  background-color: $light-color;
+}
+
+.sendBtn {
+  @include btn();
+  display: block;
+  margin: 1rem auto 2rem auto;
+}
+
+.contactInfo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14rem;
+  margin-top: 8rem;
+
+  .infoBox {
+    @include flex-center();
+    width: 33%;
+    gap: 2rem;
+
+    p {
+      font-size: 2rem;
+      line-height: 1.4;
+      text-align: center;
+    }
+  }
+}

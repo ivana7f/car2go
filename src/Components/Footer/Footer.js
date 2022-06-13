@@ -72,15 +72,15 @@ function Footer() {
           <address>
             <p>7760 Glenridge Dr. Oak Lawn, IL 60453</p>
             <p>
-              <a href="tel:415-201-6370" className={classes.footerLink}>
-                745-584-5647
+              <a href="tel:972-968-9359" className={classes.footerLink}>
+                972-968-9359
               </a>
               <br />
               <a
                 href="mailto:hello@omnifood.com"
                 className={classes.footerLink}
               >
-                hello@car2go.com
+                info@car2go.com
               </a>
             </p>
           </address>
