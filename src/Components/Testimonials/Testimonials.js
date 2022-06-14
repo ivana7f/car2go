@@ -30,6 +30,12 @@ const DUMMY_DATA = [
   },
 ];
 
+let sumRating = 0;
+DUMMY_DATA.forEach((item) => (sumRating += item.rating));
+let avgRating = sumRating / DUMMY_DATA.length;
+
+export { avgRating };
+
 const settings = {
   dots: true,
   infinite: true,
