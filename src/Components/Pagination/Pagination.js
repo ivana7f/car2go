@@ -1,4 +1,5 @@
 import React from "react";
+import classes from "./Pagination.module.scss";
 
 function Pagination(props) {
   const paginate = props.paginate;
@@ -9,7 +10,7 @@ function Pagination(props) {
   }
 
   return (
-    <nav>
+    <nav className={classes.pagination}>
       <ul>
         {pageNumbers.map((number) => (
           <li key={number}>

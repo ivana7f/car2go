@@ -16,7 +16,7 @@ function CarItem() {
     <div>
       {error && <div>{error}</div>}
       {isLoading && <div>Loading...</div>}
-      {car && (
+      {!error && !isLoading && (
         <div>
           <p>{car[0].area}</p>
           <p>{car[0].name.common}</p>

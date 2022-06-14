@@ -28,8 +28,8 @@ function Cars() {
       <Search />
       {error && <div>{error}</div>}
       {isLoading && <div>Loading...</div>}
-      {cars && <CarsList cars={currentCars} />}
-      {cars && (
+      {!error && !isLoading && <CarsList cars={currentCars} />}
+      {!error && !isLoading && (
         <Pagination
           carsPerPage={carsPerPage}
           totalCars={cars.length}
