@@ -1,5 +1,4 @@
 import React from "react";
-import StarRating from "../AddTestimonial/StarRating/StarRating";
 import { FaStar } from "react-icons/fa";
 
 import classes from "./Testimonial.module.scss";
@@ -12,6 +11,7 @@ function Testimonial(props) {
           const ratingValue = i + 1;
           return (
             <FaStar
+              key={i}
               color={ratingValue <= props.rating ? "#ffd43b" : "#ced4da"}
               size="2rem"
             />
