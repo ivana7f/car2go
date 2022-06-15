@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -6,6 +6,7 @@ import Testimonial from "./Testimonial/Testimonial";
 import classes from "./Testimonials.module.scss";
 import { SamplePrevArrow, SampleNextArrow } from "./CustomArrows/CustomArrows";
 import AddTestimonial from "./AddTestimonial/AddTestimonial";
+import AuthContext from "../../store/auth-context";
 
 const DUMMY_DATA = [
   {
@@ -48,6 +49,7 @@ const settings = {
 
 function Testimonials() {
   const [openAddTestimonial, setOpenAddTestimonial] = useState(false);
+  const authCtx = useContext(AuthContext);
 
   return (
     <section className={classes.testimonials}>
@@ -65,7 +67,7 @@ function Testimonials() {
           </Slider>
         </div>
       </div>
-      {!openAddTestimonial && (
+      {authCtx.isLoggedIn && !openAddTestimonial && (
         <button
           className={classes.btnAdd}
           onClick={() => setOpenAddTestimonial(true)}

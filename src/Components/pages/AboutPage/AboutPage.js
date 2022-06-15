@@ -33,7 +33,7 @@ function AboutPage() {
           </p>
         </div>
         <div>
-          <img src={about} className={classes.aboutImg} />
+          <img src={about} alt="car" className={classes.aboutImg} />
         </div>
       </section>
       <section className={classes.counter}>

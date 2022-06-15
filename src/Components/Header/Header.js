@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../store/auth-context";
 import classes from "./Header.module.scss";
 
 function Header() {
+  const authCtx = useContext(AuthContext);
+
   return (
     <header className={classes.header}>
       <Link to="/home" className={classes.logo}>
@@ -38,19 +41,27 @@ function Header() {
         </ul>
       </nav>
       <div className={classes.mainNavBtn}>
-        <li>
-          <Link
-            to="/signin"
-            className={`${classes.mainNavLink} ${classes.navBtnColor}`}
-          >
-            Sign In
-          </Link>
-        </li>
-        <li>
-          <Link to="/signup" className={`${classes.mainNavLink}`}>
-            Sign Up
-          </Link>
-        </li>
+        {!authCtx.isLoggedIn && (
+          <li>
+            <Link
+              to="/auth"
+              className={`${classes.mainNavLink} ${classes.navBtnColor}`}
+            >
+              Sign In
+            </Link>
+          </li>
+        )}
+        {authCtx.isLoggedIn && (
+          <li>
+            <Link
+              to="/home"
+              onClick={() => authCtx.logout()}
+              className={`${classes.mainNavLink} ${classes.navBtnColor}`}
+            >
+              Logout
+            </Link>
+          </li>
+        )}
       </div>
     </header>
   );

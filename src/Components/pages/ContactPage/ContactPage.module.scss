@@ -73,7 +73,7 @@
 }
 
 .invalidInput {
-  border: 1px solid #b40e0e;
+  border: 1px solid $error;
   background-color: #fddddd;
   width: 100%;
   padding: 1.6rem 2rem;
@@ -83,7 +83,7 @@
 
 .invalidMessage {
   @include text-area();
-  border: 1px solid #b40e0e;
+  border: 1px solid $error;
   background-color: #fddddd;
   margin-top: 0;
   padding: 1rem 2rem;

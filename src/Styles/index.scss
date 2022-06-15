@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
 @import "./Variables.scss";
 
 /* GENERAL RESET */
@@ -11,7 +11,7 @@
 
 *:focus {
   outline: none;
-  box-shadow: 0 0 0 0.7rem hsla(207, 86%, 57%, 0.4);
+  box-shadow: 0 0 0 0.5rem hsla(207, 86%, 57%, 0.3);
 }
 
 html {
