@@ -113,7 +113,7 @@ function AuthForm() {
               {isLogin ? "Create new account" : "Login with existing account"}
             </button>
           </div>
-          {error && <p>{error}</p>}
+          {error && <p className={classes.error}>{error}</p>}
         </form>
       </div>
     </section>
