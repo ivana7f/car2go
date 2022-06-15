@@ -44,13 +44,17 @@ const settings = {
 
 function Testimonials() {
   const [openAddTestimonial, setOpenAddTestimonial] = useState(false);
+  const [testimonialAdded, setTestimonialAdded] = useState(false);
   const authCtx = useContext(AuthContext);
   const ratingCtx = useContext(RatingContext);
 
   useEffect(() => {
     ratingCtx.calculateRating(DUMMY_DATA);
-    console.log("eff");
   }, [ratingCtx]);
+
+  function onSubmitTestimonial() {
+    setTestimonialAdded(true);
+  }
 
   return (
     <section className={classes.testimonials}>
@@ -76,7 +80,12 @@ function Testimonials() {
           Add testimonial
         </button>
       )}
-      {openAddTestimonial && <AddTestimonial />}
+      {openAddTestimonial && !testimonialAdded && (
+        <AddTestimonial onSubmitTestimonial={onSubmitTestimonial} />
+      )}
+      {testimonialAdded && (
+        <div className={classes.added}>Testimonial successfully added!</div>
+      )}
     </section>
   );
 }

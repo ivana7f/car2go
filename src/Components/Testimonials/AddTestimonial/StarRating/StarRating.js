@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classes from "./StarRating.module.scss";
 import { FaStar } from "react-icons/fa";
 
-function StarRating() {
+function StarRating(props) {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
 
@@ -12,13 +12,16 @@ function StarRating() {
         const ratingValue = i + 1;
 
         return (
-          <label>
+          <label key={i}>
             <input
               type="radio"
               name="rating"
               value={ratingValue}
               className={classes.radio}
-              onClick={() => setRating(ratingValue)}
+              onClick={() => {
+                setRating(ratingValue);
+                props.onPickRating(ratingValue);
+              }}
             />
             <FaStar
               className={classes.star}
