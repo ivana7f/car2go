@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import about from "../../../img/about.jpg";
 import CountUp from "react-countup";
 import { FaCarSide } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
-import { avgRating } from "../../Testimonials/Testimonials";
 import classes from "./AboutPage.module.scss";
+import RatingContext from "../../../store/rating-context";
 
 function AboutPage() {
+  const ratingCtx = useContext(RatingContext);
+
   return (
     <div className={classes.aboutPage}>
       <section className={classes.about}>
@@ -62,7 +64,7 @@ function AboutPage() {
         <div className={classes.counterItem}>
           <FaStar size="5rem" color="#ffd43b" />
           <CountUp
-            end={avgRating}
+            end={ratingCtx.rating}
             className={classes.number}
             delay="1"
             duration={1}

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,6 +7,7 @@ import classes from "./Testimonials.module.scss";
 import { SamplePrevArrow, SampleNextArrow } from "./CustomArrows/CustomArrows";
 import AddTestimonial from "./AddTestimonial/AddTestimonial";
 import AuthContext from "../../store/auth-context";
+import RatingContext from "../../store/rating-context";
 
 const DUMMY_DATA = [
   {
@@ -31,12 +32,6 @@ const DUMMY_DATA = [
   },
 ];
 
-let sumRating = 0;
-DUMMY_DATA.forEach((item) => (sumRating += item.rating));
-let avgRating = sumRating / DUMMY_DATA.length;
-
-export { avgRating };
-
 const settings = {
   dots: true,
   infinite: true,
@@ -50,6 +45,12 @@ const settings = {
 function Testimonials() {
   const [openAddTestimonial, setOpenAddTestimonial] = useState(false);
   const authCtx = useContext(AuthContext);
+  const ratingCtx = useContext(RatingContext);
+
+  useEffect(() => {
+    ratingCtx.calculateRating(DUMMY_DATA);
+    console.log("eff");
+  }, [ratingCtx]);
 
   return (
     <section className={classes.testimonials}>
