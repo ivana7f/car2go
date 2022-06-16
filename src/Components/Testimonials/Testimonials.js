@@ -7,7 +7,7 @@ import classes from "./Testimonials.module.scss";
 import { SamplePrevArrow, SampleNextArrow } from "./CustomArrows/CustomArrows";
 import AddTestimonial from "./AddTestimonial/AddTestimonial";
 import AuthContext from "../../store/auth-context";
-import RatingContext from "../../store/rating-context";
+import ValuesContext from "../../store/values-context";
 
 const DUMMY_DATA = [
   {
@@ -46,11 +46,11 @@ function Testimonials() {
   const [openAddTestimonial, setOpenAddTestimonial] = useState(false);
   const [testimonialAdded, setTestimonialAdded] = useState(false);
   const authCtx = useContext(AuthContext);
-  const ratingCtx = useContext(RatingContext);
+  const valuesCtx = useContext(ValuesContext);
 
   useEffect(() => {
-    ratingCtx.calculateRating(DUMMY_DATA);
-  }, [ratingCtx]);
+    valuesCtx.calculateRating(DUMMY_DATA);
+  }, [valuesCtx]);
 
   function onSubmitTestimonial() {
     setTestimonialAdded(true);

@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import ValuesContext from "../../store/values-context";
 import classes from "./SearchBox.module.scss";
 
 function SearchBox() {
+  const valuesCtx = useContext(ValuesContext);
+  const history = useHistory();
+
+  function submitHandler(e) {
+    e.preventDefault();
+
+    history.push("/cars");
+  }
+
   return (
     <div className={classes.box}>
-      <form className={classes.form}>
-        <label htmlFor="cars">Select car model</label>
-        <select id="cars" name="cars" required>
+      <form className={classes.form} onSubmit={submitHandler}>
+        <label htmlFor="cars">Select car brand</label>
+        <select
+          id="cars"
+          name="cars"
+          required
+          onChange={(e) => valuesCtx.setCarBrand(e.target.value)}
+        >
           <option value="">Please select one option</option>
           <option value="mercedes">Mercedes</option>
           <option value="audi">Audi</option>

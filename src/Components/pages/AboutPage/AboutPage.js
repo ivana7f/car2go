@@ -5,10 +5,10 @@ import { FaCarSide } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
 import classes from "./AboutPage.module.scss";
-import RatingContext from "../../../store/rating-context";
+import ValuesContext from "../../../store/values-context";
 
 function AboutPage() {
-  const ratingCtx = useContext(RatingContext);
+  const valuesCtx = useContext(ValuesContext);
 
   return (
     <div className={classes.aboutPage}>
@@ -45,7 +45,7 @@ function AboutPage() {
             end={50}
             className={classes.number}
             delay="1"
-            duration={2}
+            duration={1}
             suffix="+"
           />
           <p>Cars</p>
@@ -64,7 +64,7 @@ function AboutPage() {
         <div className={classes.counterItem}>
           <FaStar size="5rem" color="#ffd43b" />
           <CountUp
-            end={ratingCtx.rating}
+            end={valuesCtx.rating}
             className={classes.number}
             delay="1"
             duration={1}

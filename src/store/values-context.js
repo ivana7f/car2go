@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 // creating context
-const RatingContext = React.createContext({});
+const ValuesContext = React.createContext({});
 
 // creating context provider
-export function RatingContextProvider(props) {
+export function ValuesContextProvider(props) {
   const [rating, setRating] = useState(null);
+  const [carBrand, setCarBrand] = useState("");
 
   const calculateRating = (testimonials) => {
     let sumRating = 0;
@@ -16,13 +17,15 @@ export function RatingContextProvider(props) {
   const contextValue = {
     rating,
     calculateRating,
+    carBrand,
+    setCarBrand,
   };
 
   return (
-    <RatingContext.Provider value={contextValue}>
+    <ValuesContext.Provider value={contextValue}>
       {props.children}
-    </RatingContext.Provider>
+    </ValuesContext.Provider>
   );
 }
 
-export default RatingContext;
+export default ValuesContext;
