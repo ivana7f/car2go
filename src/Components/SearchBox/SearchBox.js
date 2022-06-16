@@ -29,6 +29,8 @@ function SearchBox() {
           <option value="bmw">BMW</option>
           <option value="volvo">Volvo</option>
           <option value="renault">Renault</option>
+          <option value="fiat">Fiat</option>
+          <option value="opel">Opel</option>
         </select>
         <button>Search</button>
       </form>

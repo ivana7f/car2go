@@ -4,6 +4,7 @@
 .container {
   @include container();
   margin-top: 1rem;
+  margin-bottom: 3rem;
   background-color: $light-color;
   height: 8rem;
   border-radius: 10px;
