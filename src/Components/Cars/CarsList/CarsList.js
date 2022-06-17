@@ -5,7 +5,7 @@ import car1 from "../../../img/car.png";
 import { GiCarSeat } from "react-icons/gi";
 import { GiCarDoor } from "react-icons/gi";
 import { IoSnow } from "react-icons/io5";
-import { MdOutlineLocalGasStation } from "react-icons/md";
+import { FaGasPump } from "react-icons/fa";
 import { BsGear } from "react-icons/bs";
 import { FaSuitcaseRolling } from "react-icons/fa";
 
@@ -33,7 +33,7 @@ function CarsList(props) {
                   </p>
                 )}
                 <p>
-                  <MdOutlineLocalGasStation /> {car.fuel}
+                  <FaGasPump /> {car.fuel}
                 </p>
                 <p>
                   <BsGear /> {car.transmission}

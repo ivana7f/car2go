@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import RatingContext from "../../../store/values-context";
+import ValuesContext from "../../../store/values-context";
 import classes from "./Search.module.scss";
 
-function Search() {
-  const Ctx = useContext(RatingContext);
+function Search(props) {
+  const Ctx = useContext(ValuesContext);
 
   const [car, setCar] = useState(Ctx.carBrand);
   const [sort, setSort] = useState("");
@@ -13,10 +13,14 @@ function Search() {
   function submitHandler(e) {
     e.preventDefault();
 
-    console.log(car);
-    console.log(sort);
-    console.log(minValue);
-    console.log(maxValue);
+    const filterData = {
+      car,
+      sort,
+      minValue,
+      maxValue,
+    };
+
+    props.onFilter(filterData);
   }
 
   return (

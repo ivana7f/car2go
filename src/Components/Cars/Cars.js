@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import useFetch from "../../hooks/useFetch";
 import Pagination from "../Pagination/Pagination";
 import classes from "./Cars.module.scss";
 import CarsList from "./CarsList/CarsList";
@@ -16,7 +15,7 @@ function Cars() {
     {
       id: 1,
       name: "Opel Astra H",
-      brand: "Opel",
+      brand: "opel",
       price: 50,
       seats: 5,
       doors: 5,
@@ -35,7 +34,7 @@ function Cars() {
     {
       id: 2,
       name: "Fiat Panda",
-      brand: "Fiat",
+      brand: "fiat",
       price: 30,
       seats: 5,
       doors: 3,
@@ -129,15 +128,25 @@ function Cars() {
     },
   ];
 
-  // const {
-  //   data: cars,
-  //   isLoading,
-  //   error,
-  // } = useFetch("https://restcountries.com/v3.1/all");
+  const [filteredCars, setFilteredCars] = useState(cars);
 
+  function onFilter(filterData) {
+    if (
+      filterData.car === "" &&
+      filterData.sort === "" &&
+      filterData.minValue === "" &&
+      filterData.maxValue === ""
+    ) {
+      setFilteredCars(cars);
+    } else {
+      setFilteredCars(cars.filter((car) => car.brand === filterData.car));
+    }
+  }
+
+  // paginationn
   const indexOfLastCar = currentPage * carsPerPage;
   const indexOfFirstCar = indexOfLastCar - carsPerPage;
-  const currentCars = cars.slice(indexOfFirstCar, indexOfLastCar);
+  const currentCars = filteredCars.slice(indexOfFirstCar, indexOfLastCar);
 
   function paginate(number) {
     setCurrenPage(number);
@@ -145,14 +154,14 @@ function Cars() {
 
   return (
     <div>
-      <Search />
+      <Search onFilter={onFilter} />
       {error && <div>{error}</div>}
       {isLoading && <div>Loading...</div>}
       {!error && !isLoading && <CarsList cars={currentCars} />}
       {!error && !isLoading && (
         <Pagination
           carsPerPage={carsPerPage}
-          totalCars={cars.length}
+          totalCars={filteredCars.length}
           paginate={paginate}
         />
       )}
