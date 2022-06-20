@@ -7,48 +7,56 @@ import { GiCarDoor } from "react-icons/gi";
 import { IoSnow } from "react-icons/io5";
 import { FaGasPump } from "react-icons/fa";
 import { BsGear } from "react-icons/bs";
-import { FaSuitcaseRolling } from "react-icons/fa";
 
 function CarsList(props) {
+  const cars = props.cars;
+
   return (
     <section className={classes.container}>
       <ul>
-        {props.cars.map((car) => (
-          <li key={car.id} className={classes.card}>
+        {Object.keys(cars).map((key) => (
+          <li key={key} className={classes.card}>
             <div className={classes.cardItem}>
               <img src={car1} />
             </div>
             <div className={classes.cardItem}>
-              <h3>{car.name}</h3>
+              <h3>
+                {cars[key].brand} {cars[key].model}
+              </h3>
               <div className={classes.carDetails}>
                 <p>
-                  <GiCarSeat /> {car.seats} seats
+                  <GiCarSeat /> {cars[key].seats} seats
                 </p>
                 <p>
-                  <GiCarDoor /> {car.doors} doors
+                  <GiCarDoor /> {cars[key].doors} doors
                 </p>
-                {car.airCond && (
+                {cars[key].ac && (
                   <p>
                     <IoSnow /> A/C
                   </p>
                 )}
                 <p>
-                  <FaGasPump /> {car.fuel}
+                  <FaGasPump /> {cars[key].fuel}
                 </p>
                 <p>
-                  <BsGear /> {car.transmission}
+                  <BsGear /> {cars[key].gearbox}
                 </p>
+                {cars[key].abs && (
+                  <p>
+                    <IoSnow /> abs
+                  </p>
+                )}
                 <p>
-                  <FaSuitcaseRolling /> {car.bags} bags
+                  <BsGear /> {cars[key].year}
                 </p>
               </div>
             </div>
             <div className={`${classes.cardItem} ${classes.priceBox}`}>
               <div>
-                <p className={classes.price}>{car.price}$</p>
+                <p className={classes.price}>{cars[key].price}$</p>
                 <p>per day</p>
               </div>
-              <Link to={`/cars/${car.id}`} className={classes.btn}>
+              <Link to={`/cars/${key}`} className={classes.btn}>
                 Details
               </Link>
             </div>

@@ -32,9 +32,9 @@
 
 .carDetails {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 50%;
-  row-gap: 1.6rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 80%;
+  row-gap: 2.4rem;
 
   p {
     font-size: 2rem;

@@ -33,13 +33,13 @@ function Search(props) {
           defaultValue={car}
         >
           <option value="">Car brand</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-          <option value="bmw">BMW</option>
-          <option value="volvo">Volvo</option>
-          <option value="renault">Renault</option>
-          <option value="fiat">Fiat</option>
-          <option value="opel">Opel</option>
+          <option value="Mercedes">Mercedes</option>
+          <option value="Audi">Audi</option>
+          <option value="BMW">BMW</option>
+          <option value="Volvo">Volvo</option>
+          <option value="Renault">Renault</option>
+          <option value="Fiat">Fiat</option>
+          <option value="Opel">Opel</option>
         </select>
         <input
           type="number"
