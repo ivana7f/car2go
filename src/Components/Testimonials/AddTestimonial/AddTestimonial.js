@@ -20,19 +20,25 @@ function AddTestimonial(props) {
 
     const testimonial = {
       rating: rating,
-      text: message,
+      comment: message,
+      //change after adding user section
+      author: {
+        user_id: 1,
+        first_name: "Nikola",
+        last_name: "Nikolic",
+        year_born: 1999,
+        phone_number: "066111222",
+      },
     };
 
-    fetch(
-      "https://ca2go-bc062-default-rtdb.europe-west1.firebasedatabase.app/testimonials.json",
-      {
-        method: "POST",
-        body: JSON.stringify(testimonial),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    fetch("http://localhost:8000/reviews/", {
+      method: "POST",
+      body: JSON.stringify(testimonial),
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
       .then((res) => {
         if (!res.ok) {
           throw Error("failed");
