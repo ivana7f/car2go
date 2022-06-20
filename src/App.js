@@ -29,7 +29,7 @@ function App() {
         <Route path="/cars" exact>
           <Cars />
         </Route>
-        <Route path="/cars/:name">
+        <Route path="/cars/:id">
           <CarItem />
         </Route>
         <Route path="/auth">

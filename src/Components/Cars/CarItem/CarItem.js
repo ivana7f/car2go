@@ -4,13 +4,13 @@ import classes from "./CarItem.module.scss";
 import useFetch from "../../../hooks/useFetch";
 
 function CarItem() {
-  const { name } = useParams();
+  const { id } = useParams();
 
   const {
     data: car,
     isLoading,
     error,
-  } = useFetch("https://restcountries.com/v3.1/name/" + name);
+  } = useFetch("http://localhost:8000/cars/" + id + "/");
 
   return (
     <div>
@@ -18,8 +18,7 @@ function CarItem() {
       {isLoading && <div>Loading...</div>}
       {!error && !isLoading && (
         <div>
-          <p>{car[0].area}</p>
-          <p>{car[0].name.common}</p>
+          <p>{car.brand}</p>
         </div>
       )}
     </div>
