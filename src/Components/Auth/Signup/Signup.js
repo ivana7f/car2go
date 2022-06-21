@@ -25,24 +25,24 @@ function Signup(props) {
 
     //input validation
     if (firstName.trim().length < 1) {
-      console.log("1");
       setFirstNameIsValid(false);
+      return;
     }
     if (lastName.trim().length < 1) {
-      console.log("2");
       setLastNameIsValid(false);
+      return;
     }
     if (phoneNumber.trim().length < 9) {
-      console.log("3");
       setPhoneNumberIsValid(false);
+      return;
     }
     if (new Date().getFullYear() - birthYear < 18 || birthYear < 1950) {
-      console.log("4");
       setBirthYearIsValid(false);
+      return;
     }
     if (enteredPassword.length < 6) {
-      console.log(birthYear);
       setPasswordIsValid(false);
+      return;
     }
 
     const signupData = {
@@ -51,8 +51,6 @@ function Signup(props) {
       year_born: birthYear,
       phone_number: phoneNumber,
     };
-
-    console.log(signupData);
 
     props.onSubmit(signupData);
   }

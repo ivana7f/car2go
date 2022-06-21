@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
 import AuthContext from "../../store/auth-context";
 import classes from "./AuthForm.module.scss";
 import Login from "./Login/Login";

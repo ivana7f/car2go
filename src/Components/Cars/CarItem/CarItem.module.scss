@@ -1,0 +1,28 @@
+@import "../../../Styles/Mixins.scss";
+@import "../../../Styles/Variables.scss";
+
+.container {
+  @include container();
+}
+
+.img {
+  img {
+    width: 100%;
+  }
+}
+
+.carDetails {
+  background-color: $light-color;
+  border-radius: 10px;
+  padding: 2rem 3rem;
+  font-size: 2rem;
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+
+  p {
+    span {
+      font-weight: $semi-bold-font-weight;
+    }
+  }
+}

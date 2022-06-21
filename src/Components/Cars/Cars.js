@@ -8,7 +8,7 @@ import useFetch from "../../hooks/useFetch";
 
 function Cars() {
   const [currentPage, setCurrenPage] = useState(1);
-  const [carsPerPage] = useState(3);
+  const [carsPerPage] = useState(5);
 
   const {
     data: cars,
@@ -45,11 +45,12 @@ function Cars() {
       );
     }
     if (filterData.sort === "lowest") {
-      let a = Object.entries(filteredObject).sort(function (a, b) {
-        return a[1].price - b[1].price;
+      let sorted = Object.entries(filteredObject).sort(function (car1, car2) {
+        return car1[1].price - car2[1].price;
       });
-      console.log(a);
-      console.log(Object.fromEntries(a));
+      console.log(sorted);
+      console.log(Object.fromEntries(sorted));
+      filteredObject = Object.fromEntries(sorted);
     }
     // if (filterData.sort === "highest") {
     //   filteredObject = filteredArray.sort(
