@@ -17,7 +17,7 @@ function useFetch(url) {
       .then((res) => {
         console.log(res);
         if (!res.ok) {
-          throw Error("could not fetch data");
+          throw Error("Could not fetch data");
         }
         return res.json();
       })

@@ -10,6 +10,7 @@ import AuthContext from "../../store/auth-context";
 import ValuesContext from "../../store/values-context";
 import useFetch from "../../hooks/useFetch";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import NotFound from "../NotFound/NotFound";
 
 //slider settings
 const settings = {
@@ -56,7 +57,7 @@ function Testimonials() {
     <section className={classes.testimonials}>
       <div className={classes.container}>
         <h2 className={classes.headingTestimonial}>Testimonials</h2>
-        {error && <div>{error}</div>}
+        {error && <NotFound error={error} />}
         {isLoading && <LoadingSpinner />}
         {!isLoading && !error && (
           <div className={classes.slider}>

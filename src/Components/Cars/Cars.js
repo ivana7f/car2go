@@ -6,6 +6,7 @@ import Search from "./Search/Search";
 import cloneDeep from "lodash/cloneDeep";
 import useFetch from "../../hooks/useFetch";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import NotFound from "../NotFound/NotFound";
 
 function Cars() {
   const {
@@ -71,7 +72,7 @@ function Cars() {
   return (
     <div>
       <Search onFilter={onFilter} />
-      {error && <div>{error}</div>}
+      {error && <NotFound error={error} />}
       {isLoading && <LoadingSpinner />}
       {!error && !isLoading && !isFiltered && <CarsList cars={currentCars} />}
       {!error && !isLoading && isFiltered && (
