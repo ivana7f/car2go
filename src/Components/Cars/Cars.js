@@ -7,64 +7,60 @@ import cloneDeep from "lodash/cloneDeep";
 import useFetch from "../../hooks/useFetch";
 
 function Cars() {
-  const [currentPage, setCurrenPage] = useState(1);
-  const [carsPerPage] = useState(5);
-
   const {
     data: cars,
     isLoading,
     error,
   } = useFetch("http://localhost:8000/cars/");
 
-  const [filteredCars, setFilteredCars] = useState("");
+  const [filteredCars, setFilteredCars] = useState(cars);
+  const [isFiltered, setIsFiltered] = useState(false);
+
+  const [currentPage, setCurrenPage] = useState(1);
+  const [carsPerPage] = useState(5);
 
   // when search button is clicked
   function onFilter(filterData) {
-    // deep clone of cars object
-    let filteredObject = cloneDeep(cars);
+    // deep clone of cars array
+    let filteredArray = cloneDeep(cars);
 
     if (filterData.car !== "") {
-      filteredObject = Object.fromEntries(
-        Object.entries(filteredObject).filter(
-          (car) => car[1].brand === filterData.car
-        )
+      filteredArray = filteredArray.filter(
+        (car) => car[1].brand === filterData.car
       );
     }
     if (filterData.minValue !== "") {
-      filteredObject = Object.fromEntries(
-        Object.entries(filteredObject).filter(
-          (car) => car[1].price >= filterData.minValue
-        )
+      filteredArray = filteredArray.filter(
+        (car) => car[1].price >= filterData.minValue
       );
     }
     if (filterData.maxValue !== "") {
-      filteredObject = Object.fromEntries(
-        Object.entries(filteredObject).filter(
-          (car) => car[1].price <= filterData.maxValue
-        )
+      filteredArray = filteredArray.filter(
+        (car) => car[1].price <= filterData.maxValue
       );
     }
     if (filterData.sort === "lowest") {
-      let sorted = Object.entries(filteredObject).sort(function (car1, car2) {
-        return car1[1].price - car2[1].price;
-      });
-      console.log(sorted);
-      console.log(Object.fromEntries(sorted));
-      filteredObject = Object.fromEntries(sorted);
+      filteredArray = filteredArray.sort(
+        (car1, car2) => car1[1].price - car2[1].price
+      );
     }
-    // if (filterData.sort === "highest") {
-    //   filteredObject = filteredArray.sort(
-    //     (car1, car2) => car2.price - car1.price
-    //   );
-    // }
-    setFilteredCars(filteredObject);
+    if (filterData.sort === "highest") {
+      filteredArray = filteredArray.sort(
+        (car1, car2) => car2[1].price - car1[1].price
+      );
+    }
+
+    setFilteredCars(filteredArray);
+    setIsFiltered(true);
   }
 
   // paginationn
   const indexOfLastCar = currentPage * carsPerPage;
   const indexOfFirstCar = indexOfLastCar - carsPerPage;
-  const currentCars = Object.fromEntries(
-    Object.entries(filteredCars).slice(indexOfFirstCar, indexOfLastCar)
+  const currentCars = cars.slice(indexOfFirstCar, indexOfLastCar);
+  const currentFilteredCars = filteredCars.slice(
+    indexOfFirstCar,
+    indexOfLastCar
   );
 
   function paginate(number) {
@@ -76,7 +72,10 @@ function Cars() {
       <Search onFilter={onFilter} />
       {error && <div>{error}</div>}
       {isLoading && <div>Loading...</div>}
-      {!error && !isLoading && <CarsList cars={currentCars} />}
+      {!error && !isLoading && !isFiltered && <CarsList cars={currentCars} />}
+      {!error && !isLoading && isFiltered && (
+        <CarsList cars={currentFilteredCars} />
+      )}
       {!error && !isLoading && (
         <Pagination
           carsPerPage={carsPerPage}

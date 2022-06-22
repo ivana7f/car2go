@@ -14,49 +14,49 @@ function CarsList(props) {
   return (
     <section className={classes.container}>
       <ul>
-        {Object.keys(cars).map((key) => (
-          <li key={key} className={classes.card}>
+        {cars.map((car) => (
+          <li key={car[0]} className={classes.card}>
             <div className={classes.cardItem}>
               <img src={car1} />
             </div>
             <div className={classes.cardItem}>
               <h3>
-                {cars[key].brand} {cars[key].model}
+                {car[1].brand} {car[1].model}
               </h3>
               <div className={classes.carDetails}>
                 <p>
-                  <GiCarSeat /> {cars[key].seats} seats
+                  <GiCarSeat /> {car[1].seats} seats
                 </p>
                 <p>
-                  <GiCarDoor /> {cars[key].doors} doors
+                  <GiCarDoor /> {car[1].doors} doors
                 </p>
-                {cars[key].ac && (
+                {car[1].ac && (
                   <p>
                     <IoSnow /> A/C
                   </p>
                 )}
                 <p>
-                  <FaGasPump /> {cars[key].fuel}
+                  <FaGasPump /> {car[1].fuel}
                 </p>
                 <p>
-                  <BsGear /> {cars[key].gearbox}
+                  <BsGear /> {car[1].gearbox}
                 </p>
-                {cars[key].abs && (
+                {car[1].abs && (
                   <p>
                     <IoSnow /> abs
                   </p>
                 )}
                 <p>
-                  <BsGear /> {cars[key].year}
+                  <BsGear /> {car[1].year}
                 </p>
               </div>
             </div>
             <div className={`${classes.cardItem} ${classes.priceBox}`}>
               <div>
-                <p className={classes.price}>{cars[key].price}$</p>
+                <p className={classes.price}>{car[1].price}$</p>
                 <p>per day</p>
               </div>
-              <Link to={`/cars/${key}`} className={classes.btn}>
+              <Link to={`/cars/${car[0]}`} className={classes.btn}>
                 Details
               </Link>
             </div>

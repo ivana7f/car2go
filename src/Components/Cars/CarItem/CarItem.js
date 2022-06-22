@@ -13,11 +13,11 @@ function CarItem() {
 
   const { id } = useParams();
 
-  const {
-    data: car,
-    isLoading,
-    error,
-  } = useFetch("http://localhost:8000/cars/" + id + "/");
+  const { data, isLoading, error } = useFetch(
+    "http://localhost:8000/cars/" + id + "/"
+  );
+
+  const car = Object.fromEntries(data);
 
   function onRent(rentData) {
     setRentData(rentData);

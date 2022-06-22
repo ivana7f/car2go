@@ -23,7 +23,7 @@ function useFetch(url) {
       })
       .then((data) => {
         console.log(data);
-        setData(data);
+        setData(Object.entries(data));
         setIsLoading(false);
         setError(null);
       })

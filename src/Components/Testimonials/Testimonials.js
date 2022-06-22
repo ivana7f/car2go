@@ -34,6 +34,8 @@ function Testimonials() {
     error,
   } = useFetch("http://localhost:8000/reviews/");
 
+  console.log(testimonials);
+
   useEffect(() => {
     valuesCtx.calculateRating(testimonials);
   }, [valuesCtx.rating, testimonials]);
@@ -41,11 +43,7 @@ function Testimonials() {
   //show only testimoials with rating greater than 3
   useEffect(() => {
     setTestimonialsShow(
-      Object.fromEntries(
-        Object.entries(testimonials).filter(
-          (testimonial) => testimonial[1].rating > 3
-        )
-      )
+      testimonials.filter((testimonial) => testimonial[1].rating > 3)
     );
   }, [testimonials]);
 
@@ -62,11 +60,11 @@ function Testimonials() {
         {!isLoading && !error && (
           <div className={classes.slider}>
             <Slider {...settings}>
-              {Object.keys(testimonialsShow).map((key) => (
+              {testimonialsShow.map((testimonial) => (
                 <Testimonial
-                  key={key}
-                  rating={testimonialsShow[key].rating}
-                  text={testimonialsShow[key].comment}
+                  key={testimonials[0]}
+                  rating={testimonial[1].rating}
+                  text={testimonial[1].comment}
                 />
               ))}
             </Slider>
