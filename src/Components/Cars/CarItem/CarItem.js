@@ -4,6 +4,7 @@ import classes from "./CarItem.module.scss";
 import useFetch from "../../../hooks/useFetch";
 import RentForm from "../RentForm/RentForm";
 import ConfirmRent from "../ConfirmRent/ConfirmRent";
+import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 
 let car1 = "https://i.postimg.cc/kgXvNnLx/audi.jpg";
 
@@ -29,7 +30,7 @@ function CarItem() {
   return (
     <div>
       {error && <div>{error}</div>}
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <LoadingSpinner />}
       {!error && !isLoading && (
         <div className={classes.container}>
           <div className={classes.img}>

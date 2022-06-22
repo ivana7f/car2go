@@ -9,6 +9,7 @@ import AddTestimonial from "./AddTestimonial/AddTestimonial";
 import AuthContext from "../../store/auth-context";
 import ValuesContext from "../../store/values-context";
 import useFetch from "../../hooks/useFetch";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 //slider settings
 const settings = {
@@ -56,7 +57,7 @@ function Testimonials() {
       <div className={classes.container}>
         <h2 className={classes.headingTestimonial}>Testimonials</h2>
         {error && <div>{error}</div>}
-        {isLoading && <div>Loading...</div>}
+        {isLoading && <LoadingSpinner />}
         {!isLoading && !error && (
           <div className={classes.slider}>
             <Slider {...settings}>
