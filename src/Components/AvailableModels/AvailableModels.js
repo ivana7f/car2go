@@ -9,6 +9,7 @@ import hyundai from "../../img/car-logos/hyundai.png";
 import opel from "../../img/car-logos/opel.png";
 import peugeot from "../../img/car-logos/peugeot.png";
 import volvo from "../../img/car-logos/volvo.png";
+import volkswagen from "../../img/car-logos/volkswagen.png";
 
 function AvailableModels() {
   return (
@@ -25,6 +26,7 @@ function AvailableModels() {
           <img src={opel} alt=""></img>
           <img src={volvo} alt=""></img>
           <img src={hyundai} alt=""></img>
+          <img src={volkswagen} alt=""></img>
         </div>
       </div>
     </section>

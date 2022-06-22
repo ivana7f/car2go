@@ -10,10 +10,8 @@ export function ValuesContextProvider(props) {
 
   const calculateRating = (testimonials) => {
     let sumRating = 0;
-    Object.keys(testimonials).map(
-      (key) => (sumRating += testimonials[key].rating)
-    );
-    setRating(sumRating / Object.keys(testimonials).length);
+    testimonials.map((testimonial) => (sumRating += testimonial[1].rating));
+    setRating(sumRating / testimonials.length);
   };
 
   const contextValue = {

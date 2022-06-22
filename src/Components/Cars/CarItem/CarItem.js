@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import classes from "./CarItem.module.scss";
 import useFetch from "../../../hooks/useFetch";
-import car1 from "../../../img/car.png";
 import RentForm from "../RentForm/RentForm";
 import ConfirmRent from "../ConfirmRent/ConfirmRent";
+
+let car1 = "https://i.postimg.cc/kgXvNnLx/audi.jpg";
 
 function CarItem() {
   const [isRented, setIsRented] = useState(false);

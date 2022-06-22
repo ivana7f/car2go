@@ -38,8 +38,12 @@ function Search(props) {
           <option value="BMW">BMW</option>
           <option value="Volvo">Volvo</option>
           <option value="Renault">Renault</option>
-          <option value="Fiat">Fiat</option>
           <option value="Opel">Opel</option>
+          <option value="Toyota">Toyota</option>
+          <option value="Citroen">Citroen</option>
+          <option value="Peugeot">Peugeot</option>
+          <option value="Hyundai">Hyundai</option>
+          <option value="Volkswagen">Volkswagen</option>
         </select>
         <input
           type="number"

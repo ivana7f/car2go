@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import AddCar from "./Components/AddCar/AddCar";
 import AuthForm from "./Components/Auth/AuthForm";
 import CarItem from "./Components/Cars/CarItem/CarItem";
 import Cars from "./Components/Cars/Cars";
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route path="/auth">
           <AuthForm />
+        </Route>
+        <Route path="/new">
+          <AddCar />
         </Route>
         <Route path="*">
           <Redirect to="/home" />

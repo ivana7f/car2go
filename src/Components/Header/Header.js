@@ -40,7 +40,15 @@ function Header() {
           </li>
         </ul>
       </nav>
+
       <div className={classes.mainNavBtn}>
+        {!authCtx.isLoggedIn && (
+          <li>
+            <Link to="/new" className={classes.mainNavLink}>
+              Add New Car
+            </Link>
+          </li>
+        )}
         {!authCtx.isLoggedIn && (
           <li>
             <Link
