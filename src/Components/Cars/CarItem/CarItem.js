@@ -6,8 +6,11 @@ import RentForm from "../RentForm/RentForm";
 import ConfirmRent from "../ConfirmRent/ConfirmRent";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 import NotFound from "../../NotFound/NotFound";
+import ImageSlider from "../../ImageSlider/ImageSlider";
 
-import car1 from "../../../img/bmw.jpeg";
+import car1 from "../../../img/car.png";
+import car2 from "../../../img/bmw.jpeg";
+import car3 from "../../../img/citroen.png";
 
 function CarItem() {
   const [isRented, setIsRented] = useState(false);
@@ -28,50 +31,52 @@ function CarItem() {
     setToTalPrice(rentData.days * car.price);
   }
 
+  const images = [{ url: car1 }, { url: car2 }, { url: car3 }];
+
   return (
     <div>
       {error && <NotFound error={error} />}
       {isLoading && <LoadingSpinner />}
       {!error && !isLoading && (
         <div className={classes.container}>
-          <div className={classes.img}>
-            <img src={car1} />
-          </div>
-          <div className={classes.carDetails}>
-            <p>
-              <span> Brand:</span> {car.brand}
-            </p>
-            <p>
-              <span>Model:</span> {car.model}
-            </p>
-            <p>
-              <span>Seats</span>: {car.seats}
-            </p>
-            <p>
-              <span>Doors:</span> {car.doors}
-            </p>
-            <p>
-              <span>Air Conditioning:</span> {car.ac ? "Yes" : "No"}
-            </p>
-            <p>
-              <span>Fuel:</span> {car.fuel}
-            </p>
-            <p>
-              <span>Gearbox:</span> {car.gearbox}
-            </p>
-            <p>
-              <span>ABS:</span> {car.abs ? "Yes" : "No"}
-            </p>
-            <p>
-              <span>Year:</span> {car.year}
-            </p>
-
-            <div className={classes.priceDetails}>
+          <div className={classes.car}>
+            <div>
+              <ImageSlider slides={images} />
+            </div>
+            <div className={classes.carDetails}>
+              <p>
+                <span> Brand:</span> {car.brand}
+              </p>
+              <p>
+                <span>Model:</span> {car.model}
+              </p>
+              <p>
+                <span>Seats</span>: {car.seats}
+              </p>
+              <p>
+                <span>Doors:</span> {car.doors}
+              </p>
+              <p>
+                <span>Air Conditioning:</span> {car.ac ? "Yes" : "No"}
+              </p>
+              <p>
+                <span>Fuel:</span> {car.fuel}
+              </p>
+              <p>
+                <span>Gearbox:</span> {car.gearbox}
+              </p>
+              <p>
+                <span>ABS:</span> {car.abs ? "Yes" : "No"}
+              </p>
+              <p>
+                <span>Year:</span> {car.year}
+              </p>
               <p className={classes.price}>
                 <span>Price:</span> {car.price}$ per day
               </p>
             </div>
           </div>
+
           {!isRented && <RentForm onRent={onRent} />}
           {isRented && (
             <ConfirmRent rentData={rentData} totalPrice={totalPrice} />
