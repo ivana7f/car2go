@@ -7,18 +7,13 @@
   h2 {
     @include heading(2.4rem, 3rem, 1);
     margin-top: 2rem;
+    text-align: center;
   }
 }
 
 .form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  .column {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+  display: flex;
+  flex-direction: column;
 
   .selectField,
   .inputField {
@@ -27,6 +22,7 @@
     border-radius: 15px;
     font-size: 1.6rem;
     border: 1px solid #ced4da;
+    width: 30%;
   }
 
   .label {
@@ -39,11 +35,35 @@
 .btn {
   @include btn();
   display: block;
-  align-self: flex-start;
+  margin-top: 2rem;
+  align-self: flex-end;
 }
 
 .invalidInput {
   font-size: 1.6rem;
   margin-top: 1rem;
   color: $error;
+}
+
+.card {
+  background-color: $light-color;
+  padding: 2rem 2rem 2rem 7rem;
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  border-radius: 10px;
+}
+
+.success {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.btnAgain {
+  @include btn();
+  display: block;
+  margin: 3rem auto 0 auto;
 }

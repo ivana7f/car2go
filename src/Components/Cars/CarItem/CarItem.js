@@ -7,7 +7,7 @@ import ConfirmRent from "../ConfirmRent/ConfirmRent";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 import NotFound from "../../NotFound/NotFound";
 
-let car1 = "https://i.postimg.cc/kgXvNnLx/audi.jpg";
+import car1 from "../../../img/bmw.jpeg";
 
 function CarItem() {
   const [isRented, setIsRented] = useState(false);
