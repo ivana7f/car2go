@@ -76,6 +76,10 @@ function EditCar(props) {
       });
   }
 
+  function cancel() {
+    props.setIsEditing(false);
+  }
+
   return (
     <div className={classes.carDetails}>
       <div className={classes.detail}>
@@ -237,9 +241,14 @@ function EditCar(props) {
           <span className={classes.invalidInput}>Input not valid!</span>
         )}
       </div>
-      <button onClick={confirmEdit} className={classes.btnEdit}>
-        Confirm
-      </button>
+      <div>
+        <button onClick={confirmEdit} className={classes.btnConfirm}>
+          Confirm
+        </button>
+        <button onClick={cancel} className={classes.btnCancel}>
+          Cancel
+        </button>
+      </div>
       {errorAdding && (
         <div className={classes.invalidInput}>Error editing car!</div>
       )}
