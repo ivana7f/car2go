@@ -7,6 +7,8 @@ import ConfirmRent from "../ConfirmRent/ConfirmRent";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 import NotFound from "../../NotFound/NotFound";
 import ImageSlider from "../../ImageSlider/ImageSlider";
+import CarDetails from "./CarDetails";
+import EditCar from "./EditCar";
 
 import car1 from "../../../img/car.png";
 import car2 from "../../../img/bmw.jpeg";
@@ -16,6 +18,7 @@ function CarItem() {
   const [isRented, setIsRented] = useState(false);
   const [rentData, setRentData] = useState({});
   const [totalPrice, setToTalPrice] = useState(0);
+  const [isEditing, setIsEditing] = useState(false);
 
   const { id } = useParams();
 
@@ -43,39 +46,20 @@ function CarItem() {
             <div>
               <ImageSlider slides={images} />
             </div>
-            <div className={classes.carDetails}>
-              <p>
-                <span> Brand:</span> {car.brand}
-              </p>
-              <p>
-                <span>Model:</span> {car.model}
-              </p>
-              <p>
-                <span>Seats</span>: {car.seats}
-              </p>
-              <p>
-                <span>Doors:</span> {car.doors}
-              </p>
-              <p>
-                <span>Air Conditioning:</span> {car.ac ? "Yes" : "No"}
-              </p>
-              <p>
-                <span>Fuel:</span> {car.fuel}
-              </p>
-              <p>
-                <span>Gearbox:</span> {car.gearbox}
-              </p>
-              <p>
-                <span>ABS:</span> {car.abs ? "Yes" : "No"}
-              </p>
-              <p>
-                <span>Year:</span> {car.year}
-              </p>
-              <p className={classes.price}>
-                <span>Price:</span> {car.price}$ per day
-              </p>
-            </div>
+            {!isEditing && <CarDetails car={car} id={id} />}
+            {isEditing && (
+              <EditCar car={car} id={id} setIsEditing={setIsEditing} />
+            )}
           </div>
+
+          {!isEditing && (
+            <button
+              onClick={() => setIsEditing(true)}
+              className={classes.btnEdit}
+            >
+              Edit
+            </button>
+          )}
 
           {!isRented && <RentForm onRent={onRent} />}
           {isRented && (

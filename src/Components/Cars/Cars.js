@@ -81,7 +81,7 @@ function Cars() {
       {!error && !isLoading && (
         <Pagination
           carsPerPage={carsPerPage}
-          totalCars={Object.keys(filteredCars).length}
+          totalCars={isFiltered ? filteredCars.length : cars.length}
           paginate={paginate}
         />
       )}

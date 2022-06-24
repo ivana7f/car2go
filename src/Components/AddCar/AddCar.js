@@ -87,7 +87,7 @@ function AddCar() {
           You successfully added new car!
           <button
             onClick={() => setSuccessAdding(false)}
-            className={classes.btnSuccess}
+            className={classes.btnAgain}
           >
             Add another
           </button>
