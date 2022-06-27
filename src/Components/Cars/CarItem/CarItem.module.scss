@@ -52,7 +52,7 @@
   @include btn();
   background-color: transparent;
   color: $text-color-dark;
-  box-shadow: inset 0 0 0 1px $darker-color;
+  box-shadow: inset 0 0 0 1px $dark-color;
 
   &:hover {
     color: $white;

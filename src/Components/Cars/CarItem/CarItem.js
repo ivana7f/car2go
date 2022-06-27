@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import classes from "./CarItem.module.scss";
 import useFetch from "../../../hooks/useFetch";
 import RentForm from "../RentForm/RentForm";
@@ -21,8 +21,11 @@ function CarItem() {
   const [totalPrice, setToTalPrice] = useState(0);
   const [isEditing, setIsEditing] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [deleteError, setDeleteError] = useState(false);
 
   const { id } = useParams();
+
+  const history = useHistory();
 
   const { data, isLoading, error } = useFetch(
     "http://localhost:8000/cars/" + id + "/"
@@ -39,7 +42,7 @@ function CarItem() {
   const images = [{ url: car1 }, { url: car2 }, { url: car3 }];
 
   function deleteCar() {
-    fetch("http://localhost:8000/cars/" + id, {
+    fetch("http://localhost:8000/ca/" + id, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -49,21 +52,28 @@ function CarItem() {
       .then((res) => {
         console.log(res);
         if (!res.ok) {
-          throw Error("Could not send data");
+          throw Error("Could not delete item!");
         }
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        history.replace("/cars");
       })
       .catch((error) => {
-        console.log(error);
+        setDeleteError(error.message);
+        setOpenModal(false);
       });
   }
 
   return (
     <div>
-      {openModal && <Modal setOpenModal={setOpenModal} deleteCar={deleteCar} />}
+      {openModal && (
+        <Modal
+          setOpenModal={setOpenModal}
+          action={deleteCar}
+          title="Delete car?"
+        />
+      )}
       {error && <NotFound error={error} />}
       {isLoading && <LoadingSpinner />}
       {!error && !isLoading && (
@@ -94,6 +104,7 @@ function CarItem() {
               Edit
             </button>
           )}
+          {deleteError && <p className={classes.invalidInput}>{deleteError}</p>}
 
           {!isRented && <RentForm onRent={onRent} />}
           {isRented && (

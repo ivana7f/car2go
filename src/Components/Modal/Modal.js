@@ -9,10 +9,10 @@ function Modal(props) {
     >
       <div className={classes.modal} onClick={(e) => e.stopPropagation()}>
         <div className={classes.title}>
-          <h1>Delete car?</h1>
+          <h1>{props.title}</h1>
         </div>
         <div className={classes.actions}>
-          <button className={classes.btn} onClick={() => props.deleteCar()}>
+          <button className={classes.btn} onClick={() => props.action()}>
             Yes
           </button>
           <button
