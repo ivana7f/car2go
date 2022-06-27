@@ -21,6 +21,8 @@ function RentForm(props) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneNumberIsValid, setPhoneNumberIsValid] = useState(true);
 
+  const today = new Date().toISOString().split("T")[0];
+
   function submitHandler(e) {
     e.preventDefault();
 
@@ -89,6 +91,7 @@ function RentForm(props) {
           <input
             id="pickUp"
             type="date"
+            min={today}
             className={classes.date}
             required
             onChange={(e) => setPickup(e.target.value)}
@@ -99,6 +102,7 @@ function RentForm(props) {
           <input
             id="dropOff"
             type="date"
+            min={today}
             className={classes.date}
             required
             onChange={(e) => setDropoff(e.target.value)}
