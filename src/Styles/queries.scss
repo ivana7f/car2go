@@ -1,0 +1,23 @@
+// 1200 px
+@media (max-width: 75em) {
+  .mainNavList,
+  .mainNavBtn {
+    gap: 1rem;
+  }
+
+  html {
+    // 9px
+    font-size: 56.25%;
+  }
+}
+
+// 1024px
+@media (max-width: 64em) {
+  html {
+    // 8px
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 53em) {
+}

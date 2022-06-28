@@ -1,6 +1,10 @@
 @import "../../Styles/Variables.scss";
 @import "../../Styles/Mixins.scss";
 
+.headerContainer {
+  position: relative;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -46,5 +50,79 @@
   .navBtnColor {
     background-color: $darker-color;
     color: $white;
+  }
+}
+
+.btnMobile {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  display: none;
+}
+
+@media (max-width: 75em) {
+  .mainNavList,
+  .mainNavBtn {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 53em) {
+  .btnMobile {
+    display: inline-block;
+    z-index: 10;
+    padding: 1rem 1rem 0 1rem;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 32px;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    transform: translateX(-100%);
+    transition: all 0.7s ease-in-out;
+
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .navOpen {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0%);
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .mainNavList,
+  .mainNavBtn {
+    flex-direction: column;
+
+    .navBtnColor {
+      background-color: white;
+      color: $text-color-dark;
+    }
+  }
+
+  .mainNavLink:link,
+  .mainNavLink:visited {
+    font-size: 2rem;
   }
 }
