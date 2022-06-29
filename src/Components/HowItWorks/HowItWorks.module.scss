@@ -20,7 +20,7 @@
   }
 
   h2 {
-    @include heading(4.6rem, 9rem, 1);
+    @include heading(4.6rem, 9rem, 1.2);
     text-align: center;
   }
 
@@ -63,6 +63,25 @@
         text-align: center;
         font-size: 2rem;
         padding: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 53em) {
+  .container {
+    h2 {
+      font-size: 4rem;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 0;
+
+      .step {
+        width: 70%;
+        justify-self: center;
+        align-self: center;
       }
     }
   }

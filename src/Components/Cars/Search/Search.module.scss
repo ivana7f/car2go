@@ -39,3 +39,26 @@
   padding: 0.8rem 4rem;
   font-size: 1.8rem;
 }
+
+@media (max-width: 53em) {
+  .container {
+    height: 100%;
+  }
+
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 2rem 0;
+
+    .inputField,
+    .selectField {
+      width: 100%;
+    }
+
+    .btn {
+      grid-column: 2/3;
+      justify-self: end;
+    }
+  }
+}

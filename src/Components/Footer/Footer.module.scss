@@ -89,3 +89,13 @@
     }
   }
 }
+
+@media (max-width: 53em) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .social {
+    padding: 2rem 1rem;
+  }
+}

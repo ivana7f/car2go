@@ -31,3 +31,9 @@
     box-shadow: none;
   }
 }
+
+@media (max-width: 53em) {
+  .authForm {
+    width: 60%;
+  }
+}

@@ -2,7 +2,12 @@
 @import "../../Styles/Variables.scss";
 
 .hero {
-  background-image: url("../../img/why-kei-8e2gal_GIE8-unsplash.jpg");
+  background-image: linear-gradient(
+      to right bottom,
+      hsla(207, 86%, 57%, 0.371),
+      hsla(207, 65%, 46%, 0.334)
+    ),
+    url("../../img/why-kei-8e2gal_GIE8-unsplash.jpg");
   background-size: cover;
   height: 90vh;
 
@@ -14,14 +19,24 @@
   }
 
   h1 {
-    @include heading(5.2rem, 3.2rem, 1.05);
-    color: $dark-color;
+    @include heading(5.2rem, 3rem, 1.1);
+    color: $white;
+    text-align: center;
   }
 
   p {
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     line-height: 1.8;
     color: $white;
+    text-align: center;
+  }
+}
+
+@media (max-width: 53em) {
+  .container {
+    h1 {
+      font-size: 4rem;
+    }
   }
 }

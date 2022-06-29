@@ -101,3 +101,20 @@
 .map {
   margin-top: 4rem;
 }
+
+@media (max-width: 53em) {
+  .contactForm {
+    width: 70%;
+
+    h2 {
+      font-size: 4rem;
+    }
+  }
+
+  .contactInfo {
+    gap: 4rem;
+    .infoBox {
+      width: 100%;
+    }
+  }
+}

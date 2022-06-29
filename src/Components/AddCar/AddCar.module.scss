@@ -22,7 +22,7 @@
     border-radius: 15px;
     font-size: 1.6rem;
     border: 1px solid #ced4da;
-    width: 30%;
+    width: 33%;
   }
 
   .label {
@@ -66,4 +66,11 @@
   @include btn();
   display: block;
   margin: 3rem auto 0 auto;
+}
+
+@media (max-width: 53em) {
+  .card {
+    flex-wrap: nowrap;
+    height: 100%;
+  }
 }

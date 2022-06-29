@@ -79,7 +79,7 @@ function CarItem() {
       {!error && !isLoading && (
         <div className={classes.container}>
           <div className={classes.car}>
-            <div>
+            <div className={classes.sliderContainer}>
               <ImageSlider slides={images} />
             </div>
             {!isEditing && <CarDetails car={car} id={id} />}

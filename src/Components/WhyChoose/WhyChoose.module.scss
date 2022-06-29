@@ -33,6 +33,8 @@
         font-size: 2.2rem;
         margin: 2rem 0;
         text-align: center;
+
+        line-height: 1.2;
       }
 
       p {
@@ -41,6 +43,23 @@
         text-align: center;
         line-height: 1.5;
         color: #777;
+      }
+    }
+  }
+}
+
+@media (max-width: 53em) {
+  .container {
+    h2 {
+      font-size: 4rem;
+    }
+    .boxes {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .box {
+        width: 50%;
       }
     }
   }

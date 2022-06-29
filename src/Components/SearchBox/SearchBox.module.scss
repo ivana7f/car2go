@@ -33,3 +33,10 @@
     margin-left: 2rem;
   }
 }
+
+@media (max-width: 53em) {
+  .box {
+    width: 55rem;
+    height: 8rem;
+  }
+}
