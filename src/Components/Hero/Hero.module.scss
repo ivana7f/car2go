@@ -7,7 +7,7 @@
       hsla(207, 86%, 57%, 0.371),
       hsla(207, 65%, 46%, 0.334)
     ),
-    url("../../img/why-kei-8e2gal_GIE8-unsplash.jpg");
+    url("../../img/background.jpg");
   background-size: cover;
   height: 90vh;
 
@@ -19,14 +19,14 @@
   }
 
   h1 {
-    @include heading(5.2rem, 3rem, 1.1);
+    @include heading(5.2rem, 5rem, 1.1);
     color: $white;
     text-align: center;
   }
 
   p {
     font-size: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
     line-height: 1.8;
     color: $white;
     text-align: center;

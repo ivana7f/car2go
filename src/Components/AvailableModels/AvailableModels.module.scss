@@ -29,3 +29,13 @@
     }
   }
 }
+
+@media (max-width: 32em) {
+  .container {
+    .logos {
+      img {
+        height: 2.8rem;
+      }
+    }
+  }
+}

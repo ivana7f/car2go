@@ -99,3 +99,14 @@
     padding: 2rem 1rem;
   }
 }
+
+@media (max-width: 32em) {
+  .container {
+    column-gap: 4rem;
+  }
+
+  .social {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+}

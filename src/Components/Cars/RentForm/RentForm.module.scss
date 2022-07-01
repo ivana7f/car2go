@@ -55,3 +55,20 @@
   font-size: 1.6rem;
   color: $error;
 }
+
+@media (max-width: 32em) {
+  .form {
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .selectInput,
+    .input {
+      width: 100%;
+    }
+    .dates {
+      gap: 1rem;
+    }
+  }
+}

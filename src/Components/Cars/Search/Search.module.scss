@@ -62,3 +62,10 @@
     }
   }
 }
+
+@media (max-width: 32em) {
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+}

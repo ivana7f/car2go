@@ -125,3 +125,21 @@
     }
   }
 }
+
+@media (max-width: 32em) {
+  .card {
+    img {
+      width: 100%;
+    }
+  }
+
+  .carDetails {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .priceBox {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

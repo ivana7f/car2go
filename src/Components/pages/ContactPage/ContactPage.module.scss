@@ -118,3 +118,19 @@
     }
   }
 }
+
+@media (max-width: 32em) {
+  .contactForm {
+    width: 80%;
+  }
+}
+
+@media (max-width: 32em) {
+  .contactInfo {
+    flex-direction: column;
+    align-items: center;
+    .infoBox {
+      width: 50%;
+    }
+  }
+}

@@ -61,3 +61,10 @@
     }
   }
 }
+
+@media (max-width: 32em) {
+  .counter {
+    flex-direction: column;
+    gap: 4rem;
+  }
+}

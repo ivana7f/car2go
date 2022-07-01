@@ -64,3 +64,14 @@
     }
   }
 }
+
+@media (max-width: 32em) {
+  .container {
+    .boxes {
+      .box {
+        width: 70%;
+        height: 28rem;
+      }
+    }
+  }
+}

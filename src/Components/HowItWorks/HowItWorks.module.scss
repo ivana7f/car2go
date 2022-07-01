@@ -86,3 +86,12 @@
     }
   }
 }
+
+@media (max-width: 32em) {
+  .container {
+    .steps {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

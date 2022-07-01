@@ -40,3 +40,18 @@
     height: 8rem;
   }
 }
+
+@media (max-width: 32em) {
+  .box {
+    height: 25%;
+    width: 80%;
+  }
+  .form {
+    flex-direction: column;
+    gap: 1rem;
+
+    select {
+      width: 80%;
+    }
+  }
+}
