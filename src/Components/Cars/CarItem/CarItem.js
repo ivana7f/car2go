@@ -42,7 +42,7 @@ function CarItem() {
   const images = [{ url: car1 }, { url: car2 }, { url: car3 }];
 
   function deleteCar() {
-    fetch("http://localhost:8000/ca/" + id, {
+    fetch("http://localhost:8000/cars/" + id, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -14,12 +14,6 @@
   padding: 0 6.4rem;
 }
 
-.active {
-  background-color: $dark-color;
-  padding: 3rem;
-  color: aquamarine;
-}
-
 .logo {
   font-size: 3rem;
   text-decoration: none;
@@ -118,7 +112,7 @@
     flex-direction: column;
 
     .navBtnColor {
-      background-color: white;
+      background-color: $white;
       color: $text-color-dark;
     }
   }

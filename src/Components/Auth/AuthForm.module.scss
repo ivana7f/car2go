@@ -6,7 +6,7 @@
 }
 
 .authForm {
-  width: 40%;
+  width: 50%;
   margin: 3rem auto;
   padding: 5rem 3rem;
   background-color: $light-color;
@@ -30,6 +30,10 @@
   &:focus {
     box-shadow: none;
   }
+}
+
+.error {
+  @include error();
 }
 
 @media (max-width: 53em) {

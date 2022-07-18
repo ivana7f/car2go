@@ -38,11 +38,6 @@ function Header() {
               </Link>
             </li>
             <li>
-              <Link to="/blog" className={classes.mainNavLink}>
-                Blog
-              </Link>
-            </li>
-            <li>
               <Link to="/contact" className={classes.mainNavLink}>
                 Contact
               </Link>
@@ -63,7 +58,7 @@ function Header() {
                 to="/auth"
                 className={`${classes.mainNavLink} ${classes.navBtnColor}`}
               >
-                Sign In
+                Log In
               </Link>
             </li>
           )}

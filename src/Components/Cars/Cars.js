@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Pagination from "../Pagination/Pagination";
-import classes from "./Cars.module.scss";
 import CarsList from "./CarsList/CarsList";
 import Search from "./Search/Search";
 import cloneDeep from "lodash/cloneDeep";

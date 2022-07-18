@@ -1,7 +1,6 @@
 import React from "react";
 import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
 import AuthContext from "../../store/auth-context";
 import classes from "./AuthForm.module.scss";
 import Login from "./Login/Login";
@@ -11,56 +10,71 @@ function AuthForm() {
   const authCtx = useContext(AuthContext);
 
   const [isLogin, setIsLogin] = useState(true);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   const history = useHistory();
 
   function loginHandler(loginData) {
     console.log(loginData);
-    //   // sending fetch requests based on logged state
-    //   let url;
-    //   if (isLogin) {
-    //     url =
-    //       "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCAJtOujqCjd22SfQqcW4YJvzn0v5MCT4k";
-    //   } else {
-    //     url =
-    //       "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCAJtOujqCjd22SfQqcW4YJvzn0v5MCT4k";
-    //   }
-    //   fetch(url, {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       email: enteredEmail,
-    //       password: enteredPassword,
-    //       returnSecureToken: true,
-    //     }),
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   })
-    //     .then((res) => {
-    //       if (!res.ok) {
-    //         throw Error("Authentication failed!");
-    //       }
-    //       return res.json();
-    //     })
-    //     .then((data) => {
-    //       authCtx.login(data.idToken);
-    //       console.log(data);
-    //       setError(null);
-    //       history.replace("/");
-    //     })
-    //     .catch((err) => setError(err.message));
+    fetch("https://rentacar-fastapi-deploy.herokuapp.com/users/token", {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(loginData),
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw Error("Authentication failed!");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        // authCtx.login(data.idToken);
+        // console.log(data);
+        // setError(null);
+        // history.replace("/");
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
   }
 
   function signupHandler(signupData) {
     console.log(signupData);
 
-    //fetch data to server
+    fetch("https://rentacar-fastapi-deploy.herokuapp.com/users/create", {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(signupData),
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        if (!res.ok) {
+          throw Error("Could not send data");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setError(false);
+        setSuccess(true);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(true);
+      });
   }
 
   return (
     <section className={classes.auth}>
       <div className={classes.authForm}>
-        <h2>{isLogin ? "Login" : "Sign Up"}</h2>
         {isLogin && <Login onSubmit={loginHandler} />}
         {!isLogin && <Signup onSubmit={signupHandler} />}
         <button
@@ -72,6 +86,7 @@ function AuthForm() {
         >
           {isLogin ? "Create new account" : "Login with existing account"}
         </button>
+        {error && <p className={classes.error}>Failed!</p>}
       </div>
     </section>
   );

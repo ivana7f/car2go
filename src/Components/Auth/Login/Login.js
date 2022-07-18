@@ -37,7 +37,7 @@ function Login(props) {
   }
 
   return (
-    <form onSubmit={submitHandler} className={classes.form}>
+    <form onSubmit={submitHandler} className={classes.signin}>
       <div className={classes.control}>
         <label htmlFor="username">Username</label>
         <input
@@ -45,6 +45,7 @@ function Login(props) {
           id="username"
           value={enteredUsername}
           required
+          className={classes.inputLogin}
           onChange={(event) => setEnteredUsername(event.target.value)}
         />
         {!UsernameIsValid && (
@@ -58,6 +59,7 @@ function Login(props) {
           id="password"
           value={enteredPassword}
           required
+          className={classes.inputLogin}
           onChange={(event) => setEnteredPassword(event.target.value)}
         />
         {!passwordIsValid && (
@@ -67,7 +69,7 @@ function Login(props) {
         )}
       </div>
       <div className={classes.actions}>
-        <button className={classes.actionBtn}>Login</button>
+        <button className={classes.actionBtn}>Log in</button>
       </div>
       {error && <p className={classes.error}>{error}</p>}
     </form>

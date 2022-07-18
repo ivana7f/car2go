@@ -73,7 +73,7 @@ function Testimonials() {
           </div>
         )}
       </div>
-      {authCtx.isLoggedIn && !openAddTestimonial && (
+      {!authCtx.isLoggedIn && !openAddTestimonial && (
         <button
           className={classes.btnAdd}
           onClick={() => setOpenAddTestimonial(true)}
