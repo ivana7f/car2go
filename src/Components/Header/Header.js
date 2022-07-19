@@ -45,13 +45,11 @@ function Header() {
           </ul>
         </nav>
         <div className={classes.mainNavBtn} onClick={() => setShowMenu(false)}>
-          {!authCtx.isLoggedIn && (
-            <li>
-              <Link to="/new" className={classes.mainNavLink}>
-                Add New Car
-              </Link>
-            </li>
-          )}
+          <li>
+            <Link to="/new" className={classes.mainNavLink}>
+              Add New Car
+            </Link>
+          </li>
           {!authCtx.isLoggedIn && (
             <li>
               <Link
