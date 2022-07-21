@@ -13,20 +13,25 @@ function WhyChoose() {
           <div className={classes.box}>
             <IoLocationOutline size="5.5rem" />
             <h3>Many Pickup Locations</h3>
-            <p>loksfjsajkf djaijfajnnfa fjoiefe hfh fieijfe jdoiajifja jdi</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo
+              ligula eget dolor.
+            </p>
           </div>
           <div className={classes.box}>
             <IoRocketOutline size="5.5rem" color="#1f5c90" />
             <h3>Fast And Easy Booking</h3>
             <p>
-              loksfjsajkf djaijfafje j dj fjeijfmef fjiednw diwd jdoiajifja jdi
+              Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo
+              ligula eget dolor.
             </p>
           </div>
           <div className={classes.box}>
             <IoHappyOutline size="5.5rem" />
             <h3>Satisfied Customers</h3>
             <p>
-              loksfjsajkf djaijfajfoe jfoej jfojfeifjeijfie jfie jdoiajifja jdi
+              Lorem ipsum dolor sit amet, consectadipiscing elit. Aenean commodo
+              ligula eget dolor.
             </p>
           </div>
         </div>
