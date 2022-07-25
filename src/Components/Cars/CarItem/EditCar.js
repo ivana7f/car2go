@@ -236,7 +236,7 @@ function EditCar(props) {
           value={price}
           onChange={(e) => setPrice(Number(e.target.value))}
         />
-        $ per day
+        &euro; per day
         {!priceIsValid && (
           <span className={classes.invalidInput}>Input not valid!</span>
         )}

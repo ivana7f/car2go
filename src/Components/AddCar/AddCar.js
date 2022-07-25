@@ -321,7 +321,7 @@ function AddCar() {
 
             <div>
               <label htmlFor="price" className={classes.label}>
-                Price ($)
+                Price (&euro;)
               </label>
               <input
                 id="price"

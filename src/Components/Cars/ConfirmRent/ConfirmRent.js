@@ -39,7 +39,7 @@ function ConfirmRent(props) {
         <span>Total Days:</span> {props.rentData.days}
       </p>
       <p>
-        <span>Total Price:</span> {props.totalPrice}$
+        <span>Total Price:</span> {props.totalPrice}&euro;
       </p>
       {!isConfirmed && (
         <button onClick={confirmRent} className={classes.btn}>

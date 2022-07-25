@@ -7,6 +7,7 @@ import { GiCarDoor } from "react-icons/gi";
 import { IoSnow } from "react-icons/io5";
 import { FaGasPump } from "react-icons/fa";
 import { BsGear } from "react-icons/bs";
+import { BsCalendarCheck } from "react-icons/bs";
 
 function CarsList(props) {
   const cars = props.cars;
@@ -47,13 +48,13 @@ function CarsList(props) {
                   </p>
                 )}
                 <p>
-                  <BsGear /> {car[1].year}
+                  <BsCalendarCheck /> {car[1].year}
                 </p>
               </div>
             </div>
             <div className={`${classes.cardItem} ${classes.priceBox}`}>
               <div>
-                <p className={classes.price}>{car[1].price}$</p>
+                <p className={classes.price}>{car[1].price}&euro;</p>
                 <p>per day</p>
               </div>
               <Link to={`/cars/${car[0]}`} className={classes.btn}>

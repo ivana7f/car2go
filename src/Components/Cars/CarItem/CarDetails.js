@@ -36,7 +36,7 @@ function CarDetails(props) {
         <span>Year:</span> {car.year}
       </div>
       <div className={classes.detail}>
-        <span>Price:</span> {car.price}$ per day
+        <span>Price:</span> {car.price}&euro; per day
       </div>
     </div>
   );
