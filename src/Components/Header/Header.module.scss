@@ -15,8 +15,9 @@
 }
 
 .logo {
-  font-size: 3rem;
-  text-decoration: none;
+  img {
+    max-width: 100%;
+  }
 }
 
 .mainNavList,
@@ -59,6 +60,12 @@
   .mainNavList,
   .mainNavBtn {
     gap: 1rem;
+  }
+
+  .logo {
+    img {
+      max-width: 80%;
+    }
   }
 }
 

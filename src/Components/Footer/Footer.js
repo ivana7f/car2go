@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Footer.module.scss";
-
+import logo from "../../img/logo_car2go1.png";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -10,7 +10,7 @@ function Footer() {
     <section className={classes.section}>
       <div className={classes.container}>
         <div className={classes.logo}>
-          <a href="#">LOGO</a>
+          <img src={logo} />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim

@@ -4,6 +4,7 @@ import AuthContext from "../../store/auth-context";
 import classes from "./Header.module.scss";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseOutline } from "react-icons/io5";
+import logo from "../../img/logo_car2go1.png";
 
 function Header() {
   const authCtx = useContext(AuthContext);
@@ -15,7 +16,7 @@ function Header() {
         className={`${classes.header} ${showMenu ? classes.navOpen : null}`}
       >
         <Link to="/home" className={classes.logo}>
-          LOGO
+          <img src={logo} />
         </Link>
         <nav className={classes.mainNav}>
           <ul
